@@ -1,6 +1,11 @@
-# python-pdi
+# Python PDI
 Processamento digital de imagens em Python.
 
-# Instalação do OpenCV
-python -m pip install opencv-python
+# Instalação das bibliotecas
+Instale o Pillow via pip: 
+
+``python -m pip install Pillow``
+
+
+
 
