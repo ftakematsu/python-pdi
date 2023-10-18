@@ -34,10 +34,11 @@ for i in range(altura):
         r,g,b = imageFile.getpixel((i,j))
         #print(f"({r},{g},{b})", end="")
         # Atribuir uma cor para a posição do pixel
-        # bitMap[i,j] = escalaCinza(r,g,b)
+        bitMap[i,j] = escalaCinza(r,g,b)
         # bitMap[i,j] = inverteImagem(r,g,b)
-        bitMap[i,j] = pretoBranco(r,g,b, 120)
+        # bitMap[i,j] = pretoBranco(r,g,b, 125)
     #print()
+
 
 imageFile.save("_outputs/new_image.png", format="png")
 imageFile.show()
