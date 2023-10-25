@@ -34,12 +34,10 @@ def zoomQuadratico(imageFile):
 
 
 originalImage = Image.open("_images/lenna.png")
-
 originalImage.show()
 
 # Aplicando zoom
 newImage = zoomQuadratico(originalImage)
 newImage = zoomQuadratico(newImage)
-
-
+newImage = zoomQuadratico(newImage)
 newImage.show()
