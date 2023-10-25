@@ -50,7 +50,7 @@ def zoomLinear(imageFile):
     return newImage
 
 
-originalImage = Image.open("_images/paisagem.jpg")
+originalImage = Image.open("_images/lenna.png")
 originalImage.show()
 
 # Aplicando zoom
