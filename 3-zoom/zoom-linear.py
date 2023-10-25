@@ -29,9 +29,9 @@ def zoomLinear(imageFile):
         x+=2
     # Calcular a média sobre as linhas da matriz
     i=0
-    while i<newImage.height:
+    while i<newImage.width:
         j=1
-        while j<newImage.width-1:
+        while j<newImage.height-1:
             r1,g1,b1 = newImage.getpixel((i,j-1))
             r2,g2,b2 = newImage.getpixel((i,j+1))
             bitMapNew[i, j] = (media(r1,r2), media(g1,g2), media(b1,b2))
@@ -39,9 +39,9 @@ def zoomLinear(imageFile):
         i+=2
     # Calcular a média sobre as colunas da matriz
     i=1
-    while i<newImage.height-1:
+    while i<newImage.width-1:
         j=0
-        while j<newImage.width:
+        while j<newImage.height:
             r1,g1,b1 = newImage.getpixel((i-1,j))
             r2,g2,b2 = newImage.getpixel((i+1,j))
             bitMapNew[i, j] = (media(r1,r2), media(g1,g2), media(b1,b2))
@@ -50,10 +50,11 @@ def zoomLinear(imageFile):
     return newImage
 
 
-originalImage = Image.open("_images/lenna.png")
+originalImage = Image.open("_images/paisagem.jpg")
 originalImage.show()
 
 # Aplicando zoom
 newImage = zoomLinear(originalImage)
+newImage = zoomLinear(newImage)
 
 newImage.show()
