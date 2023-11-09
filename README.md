@@ -2,9 +2,8 @@
 Processamento digital de imagens em Python.
 
 # Instalação das bibliotecas
-Instale o Pillow via pip: 
-
-``python -m pip install Pillow``
+ - Pillow: `python -m pip install Pillow`
+ - Matplotlib: `python -m pip install matplotlib`
 
 
 

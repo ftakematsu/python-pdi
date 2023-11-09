@@ -1,3 +1,5 @@
+import matplotlib.pyplot
+
 class Histograma:
     def __init__(self):
         self.cinza = [0]*256
@@ -13,8 +15,14 @@ class Histograma:
         if (tomCinza>=0 and tomCinza<256):
             # Incrementa 1 unidade naquele tom de cinza
             self.frequencia[tomCinza] += 1
+            # Atualiza o percentual (probabilidade)
+
     
     def imprimirTabela(self):
         print("Cinza\tFrequencia")
         for i in range(256):
             print(f"{self.cinza[i]}\t{self.frequencia[i]}")
+
+    def mostrarGrafico(self):
+        matplotlib.pyplot.plot(self.cinza, self.frequencia)
+        matplotlib.pyplot.show()

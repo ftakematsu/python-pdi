@@ -43,5 +43,9 @@ def calcularHistograma(imageFile):
 imageFile = Image.open("_images/lenna.png")
 imageFile = calcularHistograma(imageFile)
 
+
 #imageFile.save("_outputs/new_image.png", format="png")
 imageFile.show()
+
+# Mostra o gráfico via Matplotlib
+histograma.mostrarGrafico()
