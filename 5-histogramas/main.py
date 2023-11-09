@@ -13,6 +13,12 @@ def tomCinza(r, g, b):
     cinza = math.floor((r+g+b)/3)
     return cinza
 
+def getRGB(imageFile, i, j):
+    if (len(imageFile.getpixel((i,j)))==4):
+        r,g,b,a = imageFile.getpixel((i,j))
+    else:
+        r,g,b = imageFile.getpixel((i,j))
+    return (r,g,b)
 
 # Converter a imagem em escala de cinza
 def converterParaEscalaCinza(imageFile):
@@ -20,7 +26,7 @@ def converterParaEscalaCinza(imageFile):
     altura,largura = imageFile.width, imageFile.height
     for i in range(altura):
         for j in range(largura):
-            r,g,b,a = imageFile.getpixel((i,j))
+            r,g,b = getRGB(imageFile, i, j)
             bitMap[i,j] = escalaCinza(r,g,b)
     return imageFile
 
@@ -34,18 +40,17 @@ def calcularHistograma(imageFile):
     histograma.definirTotalPixels(altura*largura)
     for i in range(altura):
         for j in range(largura):
-            r,g,b,a = imageFile.getpixel((i,j))
+            r,g,b = getRGB(imageFile, i, j)
             # Extraindo o tom de cinza da imagem
             cinza = tomCinza(r,g,b)
             histograma.definirFrequencia(cinza)
     histograma.imprimirTabela()
     return imageFile
 
-imageFile = Image.open("_images/lenna-contraste-baixo.png")
+imageFile = Image.open("_images/lenna.png")
 imageFile = calcularHistograma(imageFile)
 
 
-#imageFile.save("_outputs/new_image.png", format="png")
 imageFile.show()
 
 # Mostra o gráfico via Matplotlib
