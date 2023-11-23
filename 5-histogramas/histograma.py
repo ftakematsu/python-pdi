@@ -21,7 +21,6 @@ class Histograma:
             self.frequencia[tomCinza] += 1
             # Atualiza o percentual (probabilidade)
             self.probabilidade[tomCinza] = self.frequencia[tomCinza]/self.pixels
-
     
     def imprimirTabela(self):
         print("Cinza\tFrequencia\tProbabilidade")

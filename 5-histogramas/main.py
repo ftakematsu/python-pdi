@@ -47,9 +47,27 @@ def calcularHistograma(imageFile):
     histograma.imprimirTabela()
     return imageFile
 
-imageFile = Image.open("_images/lenna.png")
-imageFile = calcularHistograma(imageFile)
+def equalizarHistograma(imageFile):
+    bitMap = imageFile.load()
+    altura,largura = imageFile.width, imageFile.height
+    for y in range(altura):
+        for x in range(largura):
+            r,g,b = getRGB(imageFile, y, x)
+            rk = tomCinza(r,g,b)
+            S = 0
+            # Calcula o somatorio de probabilidade (acumulada) de 0 até rk
+            for i in range(rk):
+                S += histograma.frequencia[i]/histograma.pixels
+            # Define o novo tom de cinza do pixel
+            cinza = math.floor(S*255)
+            bitMap[y,x] = (cinza,cinza,cinza)
+    return imageFile
 
+imageFile = Image.open("_images/wilderness.png")
+imageFile = calcularHistograma(imageFile)
+imageFile = equalizarHistograma(imageFile)
+# Exibe o histograma após a equalização
+imageFile = calcularHistograma(imageFile)
 
 imageFile.show()
 
